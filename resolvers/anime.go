@@ -3,9 +3,9 @@ package resolvers
 import (
 	"context"
 
-	"github.com/Krystian19/cactus-bff/gql"
+	"github.com/Krystian19/cactus-core/proto"
 )
 
-func (r *queryResolver) Anime(ctx context.Context) (*gql.Anime, error) {
-	return &gql.Anime{ID: "1", Title: "Here we are "}, nil
+func (r *queryResolver) Anime(ctx context.Context) (*proto.Anime, error) {
+	return &proto.Anime{Id: int64(1), Title: "Here we are "}, nil
 }

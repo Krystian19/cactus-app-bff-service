@@ -1,5 +1,5 @@
 type Anime {
-  id: ID!
+  id: Int!
   title: String!
 }
 
