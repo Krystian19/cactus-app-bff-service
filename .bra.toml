@@ -1,6 +1,6 @@
 [run]
 init_cmds = [                      # Commands run in start
-  # ["make", "gen"],
+  ["make", "gen"],
   ["make", "build"],
   ["./app"]
 ]
