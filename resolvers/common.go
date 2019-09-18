@@ -9,6 +9,6 @@ type Resolver struct{}
 type queryResolver struct{ *Resolver }
 
 // Query : global query resolver function
-func (r *Resolver) Query() gqlgen.QueryResolver {
-	return queryResolver{r}
+func (r *Resolver) Query() gql.QueryResolver {
+	return &queryResolver{r}
 }

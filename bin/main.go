@@ -1,15 +1,25 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"net/http"
+	"os"
+
+	"github.com/99designs/gqlgen/handler"
+	"github.com/Krystian19/cactus-bff/gql"
+	"github.com/Krystian19/cactus-bff/resolvers"
 )
 
 func main() {
-	http.HandleFunc("/", HelloServer)
-	http.ListenAndServe(":3000", nil)
-}
+	PORT := os.Getenv("PORT")
 
-func HelloServer(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello, %s!", r.URL.Path[1:])
+	if PORT == "" {
+		PORT = "3000"
+	}
+
+	http.Handle("/", handler.Playground("GraphQL playground", "/graphql"))
+	http.Handle("/graphql", handler.GraphQL(gql.NewExecutableSchema(gql.Config{Resolvers: &resolvers.Resolver{}})))
+
+	log.Printf("GraphQL playground @ http://localhost:%s/", PORT)
+	log.Fatal(http.ListenAndServe(":"+PORT, nil))
 }
