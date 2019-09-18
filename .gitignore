@@ -17,4 +17,4 @@ app
 vendor/
 
 # Auto generated .go files by gqlgen
-gqlgen/*.go
+gql/*.go

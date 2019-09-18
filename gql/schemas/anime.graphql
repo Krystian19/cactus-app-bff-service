@@ -1,0 +1,8 @@
+type Anime {
+  id: ID!
+  title: String!
+}
+
+type Query {
+  Anime: Anime
+}

@@ -5,9 +5,9 @@ init_cmds = [                      # Commands run in start
   ["./app"]
 ]
 watch_all = true                   # Watch all sub-directories
-watch_dirs = ["bin", "resolvers", "schemas"]   # Directories to watch
+watch_dirs = ["bin", "resolvers"]   # Directories to watch
 watch_exts = [".go"]               # Extensions to watch
-ignore = [".git", "vendor", "gqlgen"]  # Directories to exclude from watching
+ignore = [".git", "vendor", "gql"]  # Directories to exclude from watching
 ignore_files = []                  # Regexps for ignoring specific notifies
 follow_symlinks = false            # Enable/disable following symbolic links of sub directories
 build_delay = 400                 # Minimal interval to Trigger build event
