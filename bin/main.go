@@ -18,7 +18,7 @@ func main() {
 	}
 
 	// Check for important env vars
-	envVarCheck()
+	EnvVarsCheck()
 
 	http.Handle("/", handler.Playground("GraphQL playground", "/graphql"))
 	http.Handle("/graphql", handler.GraphQL(gql.NewExecutableSchema(gql.Config{Resolvers: &resolvers.Resolver{}})))
@@ -27,7 +27,11 @@ func main() {
 	log.Fatal(http.ListenAndServe(":"+PORT, nil))
 }
 
-// envVarCheck : Checks for important env vars to be set
-func envVarCheck() {
-	// TODO : Check for import env vars to be specified
+// EnvVarsCheck : Checks that important ENV vars are set
+func EnvVarsCheck() {
+	CactusCoreURL := os.Getenv("CACTUS_CORE_URL")
+
+	if CactusCoreURL == "" {
+		panic("CACTUS_CORE_URL env var is not set")
+	}
 }
