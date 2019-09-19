@@ -20,13 +20,16 @@ func main() {
 	// Check for important env vars
 	EnvVarsCheck()
 
-	gqlHandler := handler.GraphQL(
-		gql.NewExecutableSchema(gql.Config{Resolvers: &resolvers.Resolver{}}),
-		// handler.ComplexityLimit(5), // GQL query complexity limit
-	)
+	gqlConfig := gql.Config{Resolvers: &resolvers.Resolver{}}
 
-	http.Handle("/", handler.Playground("GraphQL playground", "/graphql"))
-	http.Handle("/graphql", gqlHandler)
+	http.Handle("/", handler.Playground("GraphQL playground", "/playground_graphql"))
+	http.Handle("/playground_graphql", handler.GraphQL(gql.NewExecutableSchema(gqlConfig)))
+
+	// Limit the query complexity of the endpoint exposed to the outside
+	http.Handle("/graphql", handler.GraphQL(
+		gql.NewExecutableSchema(gqlConfig),
+		handler.ComplexityLimit(5), // GQL query complexity limit
+	))
 
 	log.Printf("GraphQL playground @ http://localhost:%s/", PORT)
 	log.Fatal(http.ListenAndServe(":"+PORT, nil))
