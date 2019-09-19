@@ -22,7 +22,7 @@ func main() {
 
 	gqlHandler := handler.GraphQL(
 		gql.NewExecutableSchema(gql.Config{Resolvers: &resolvers.Resolver{}}),
-		handler.ComplexityLimit(5), // GQL query complexity limit
+		// handler.ComplexityLimit(5), // GQL query complexity limit
 	)
 
 	http.Handle("/", handler.Playground("GraphQL playground", "/graphql"))

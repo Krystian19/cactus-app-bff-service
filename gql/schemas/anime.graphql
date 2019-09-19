@@ -3,6 +3,8 @@ type Anime {
   title: String!
   created_at: String!
   updated_at: String!
+
+  Releases: [Release!]!
 }
 
 type Query {

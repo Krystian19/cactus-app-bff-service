@@ -6,8 +6,9 @@ import (
 	"github.com/Krystian19/cactus-core/proto"
 )
 
-// AnimeServiceClient : Returns a client for the ChartService
-func AnimeServiceClient() (client proto.AnimeServiceClient, err error) {
+type animeResolver struct{ *Resolver }
+
+func animeServiceClient() (client proto.AnimeServiceClient, err error) {
 	conn, err := InitGRPCConnection()
 
 	if err != nil {
@@ -18,7 +19,7 @@ func AnimeServiceClient() (client proto.AnimeServiceClient, err error) {
 }
 
 func (r *queryResolver) Anime(ctx context.Context) (*proto.Anime, error) {
-	client, err := AnimeServiceClient()
+	client, err := animeServiceClient()
 
 	if err != nil {
 		return nil, err
@@ -31,4 +32,10 @@ func (r *queryResolver) Anime(ctx context.Context) (*proto.Anime, error) {
 	}
 
 	return response.Anime, nil
+}
+
+func (r *animeResolver) Releases(ctx context.Context, parent *proto.Anime) ([]*proto.Release, error) {
+	return []*proto.Release{
+		&proto.Release{ Id: 1, Title: "This is a testing release" },
+	}, nil
 }

@@ -1,0 +1,12 @@
+"""
+Release schema.
+"""
+type Release {
+  id: Int!
+
+  """
+  Title of the Release (Optional when releases have no particular name) \n
+  E.g Tokyo Ghoul:re
+  """
+  title: String
+}
