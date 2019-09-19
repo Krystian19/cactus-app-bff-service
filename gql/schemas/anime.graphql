@@ -8,5 +8,5 @@ type Anime {
 }
 
 type Query {
-  Anime: Anime
+  Anime(id: Int): Anime
 }

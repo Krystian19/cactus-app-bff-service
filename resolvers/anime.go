@@ -18,14 +18,20 @@ func animeServiceClient() (client proto.AnimeServiceClient, err error) {
 	return proto.NewAnimeServiceClient(conn), nil
 }
 
-func (r *queryResolver) Anime(ctx context.Context) (*proto.Anime, error) {
+func (r *queryResolver) Anime(ctx context.Context, id *int) (*proto.Anime, error) {
 	client, err := animeServiceClient()
 
 	if err != nil {
 		return nil, err
 	}
 
-	response, err := client.Anime(ctx, &proto.Empty{})
+	request := &proto.AnimeRequest{}
+
+	if id != nil {
+		request.Id = int64(*id)
+	}
+
+	response, err := client.Anime(ctx, request)
 
 	if err != nil {
 		return nil, err
@@ -36,6 +42,6 @@ func (r *queryResolver) Anime(ctx context.Context) (*proto.Anime, error) {
 
 func (r *animeResolver) Releases(ctx context.Context, parent *proto.Anime) ([]*proto.Release, error) {
 	return []*proto.Release{
-		&proto.Release{ Id: 1, Title: "This is a testing release" },
+		&proto.Release{Id: 1, Title: "This is a testing release"},
 	}, nil
 }
