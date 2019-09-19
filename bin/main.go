@@ -20,8 +20,13 @@ func main() {
 	// Check for important env vars
 	EnvVarsCheck()
 
+	gqlHandler := handler.GraphQL(
+		gql.NewExecutableSchema(gql.Config{Resolvers: &resolvers.Resolver{}}),
+		handler.ComplexityLimit(5), // GQL query complexity limit
+	)
+
 	http.Handle("/", handler.Playground("GraphQL playground", "/graphql"))
-	http.Handle("/graphql", handler.GraphQL(gql.NewExecutableSchema(gql.Config{Resolvers: &resolvers.Resolver{}})))
+	http.Handle("/graphql", gqlHandler)
 
 	log.Printf("GraphQL playground @ http://localhost:%s/", PORT)
 	log.Fatal(http.ListenAndServe(":"+PORT, nil))
