@@ -41,7 +41,17 @@ func (r *queryResolver) Anime(ctx context.Context, id *int) (*proto.Anime, error
 }
 
 func (r *animeResolver) Releases(ctx context.Context, parent *proto.Anime) ([]*proto.Release, error) {
-	return []*proto.Release{
-		&proto.Release{Id: 1, Title: "This is a testing release"},
-	}, nil
+	client, err := releaseServiceClient()
+
+	if err != nil {
+		return nil, err
+	}
+
+	response, err := client.Releases(ctx, &proto.ReleasesRequest{Query: &proto.ReleaseQuery{AnimeId: parent.Id}})
+
+	if err != nil {
+		return nil, err
+	}
+
+	return response.Releases, nil
 }
