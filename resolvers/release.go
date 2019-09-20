@@ -41,7 +41,7 @@ func (r *queryResolver) Release(ctx context.Context, id *int) (*proto.Release, e
 	return response.Release, nil
 }
 
-func (r *queryResolver) Releases(ctx context.Context, filter *gql.ReleasesFilter) ([]*proto.Release, error) {
+func (r *queryResolver) Releases(ctx context.Context, filter *gql.ReleasesFilter) (*gql.ReleasePaginatedList, error) {
 	client, err := releaseServiceClient()
 
 	if err != nil {
@@ -54,6 +54,14 @@ func (r *queryResolver) Releases(ctx context.Context, filter *gql.ReleasesFilter
 		if filter.AnimeID != nil {
 			request.Query.AnimeId = int64(*filter.AnimeID)
 		}
+
+		if filter.Limit != nil {
+			request.Query.Limit = int64(*filter.Limit)
+		}
+
+		if filter.Offset != nil {
+			request.Query.Offset = int64(*filter.Offset)
+		}
 	}
 
 	response, err := client.Releases(ctx, request)
@@ -62,5 +70,5 @@ func (r *queryResolver) Releases(ctx context.Context, filter *gql.ReleasesFilter
 		return nil, err
 	}
 
-	return response.Releases, nil
+	return &gql.ReleasePaginatedList{Rows: response.Releases, Count: int(response.Count)}, nil
 }

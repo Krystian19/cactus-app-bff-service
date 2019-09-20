@@ -13,9 +13,17 @@ type Release {
 
 input ReleasesFilter {
   anime_id: Int
+
+	limit: Int = 10
+  offset: Int = 0
 }
 
 extend type Query {
   Release(id: Int): Release
-  Releases(input: ReleasesFilter): [Release!]!
+  Releases(input: ReleasesFilter): ReleasePaginatedList
+}
+
+type ReleasePaginatedList {
+  rows: [Release!]!
+  count: Int!
 }
