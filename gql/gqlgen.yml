@@ -10,6 +10,8 @@ model:
 autobind: []
 
 models:
+  Genre:
+    model: github.com/Krystian19/cactus-core/proto.Genre
   Anime:
     model: github.com/Krystian19/cactus-core/proto.Anime
   Release:

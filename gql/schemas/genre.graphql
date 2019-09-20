@@ -1,0 +1,34 @@
+
+"""
+Genre schema.
+"""
+type Genre {
+  id: Int!
+
+  """
+  Title of this genre
+  """
+  title: String!
+
+  """
+  Thumbnail of this category
+  """
+  thumbnail: String
+}
+
+input GenresFilter {
+  title: String
+  
+  limit: Int = 8
+  offset: Int = 0
+}
+
+extend type Query {
+  Genre(id: Int): Genre
+  Genres(input: GenresFilter): GenrePaginatedList!
+}
+
+type GenrePaginatedList {
+  rows: [Genre!]!,
+  count: Int!
+}

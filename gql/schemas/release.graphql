@@ -20,7 +20,7 @@ input ReleasesFilter {
 
 extend type Query {
   Release(id: Int): Release
-  Releases(input: ReleasesFilter): ReleasePaginatedList
+  Releases(input: ReleasesFilter): ReleasePaginatedList!
 }
 
 type ReleasePaginatedList {
