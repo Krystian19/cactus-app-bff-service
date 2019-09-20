@@ -10,3 +10,12 @@ type Release {
   """
   title: String
 }
+
+input ReleasesFilter {
+  anime_id: Int
+}
+
+extend type Query {
+  Release(id: Int): Release
+  Releases(input: ReleasesFilter): [Release!]!
+}
