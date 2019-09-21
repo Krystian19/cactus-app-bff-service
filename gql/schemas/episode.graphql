@@ -11,6 +11,11 @@ type Episode {
   thumbnail: String
 
   """
+  Episode order E.g: 'Episode #1'
+  """
+  episode_order: Int!
+
+  """
   Episode file UUID Key code
   """
   episode_code: String!
