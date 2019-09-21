@@ -30,6 +30,10 @@ github.com/Krystian19/cactus-core v0.0.0-20190920124854-a17325ab6ae8 h1:SMYknI23
 github.com/Krystian19/cactus-core v0.0.0-20190920124854-a17325ab6ae8/go.mod h1:fuSM6i0MvBI5aL2j2qBXL/YxMfN0tcAuP509zHhhNdg=
 github.com/Krystian19/cactus-core v0.0.0-20190921075616-2e9be303ebc3 h1:BMvpXFVSnGL4yOmc6EqCpX+cvaHoj22o5VaiMlDxOlc=
 github.com/Krystian19/cactus-core v0.0.0-20190921075616-2e9be303ebc3/go.mod h1:fuSM6i0MvBI5aL2j2qBXL/YxMfN0tcAuP509zHhhNdg=
+github.com/Krystian19/cactus-core v0.0.0-20190921085545-6adaddba1cab h1:5rksjrg0fcJgXTGvsZP5/RZXDtEs7LYXXoY/xS9l2jU=
+github.com/Krystian19/cactus-core v0.0.0-20190921085545-6adaddba1cab/go.mod h1:fuSM6i0MvBI5aL2j2qBXL/YxMfN0tcAuP509zHhhNdg=
+github.com/Krystian19/cactus-core v0.0.0-20190921090010-5ca1c1041a5f h1:LavRq+FULht6k8r7J473npe9PkiWlcaa92MmtiegaMc=
+github.com/Krystian19/cactus-core v0.0.0-20190921090010-5ca1c1041a5f/go.mod h1:fuSM6i0MvBI5aL2j2qBXL/YxMfN0tcAuP509zHhhNdg=
 github.com/Shopify/sarama v1.19.0/go.mod h1:FVkBWblsNy7DGZRfXLU0O9RCGt5g3g3yEuWXgklEdEo=
 github.com/Shopify/sarama v1.23.1/go.mod h1:XLH1GYJnLVE0XCr6KdJGVJRTwY30moWNJ4sERjXX6fs=
 github.com/Shopify/toxiproxy v2.1.4+incompatible/go.mod h1:OXgGpZ6Cli1/URJOF1DMxUHB2q5Ap20/P/eIdh4G0pI=

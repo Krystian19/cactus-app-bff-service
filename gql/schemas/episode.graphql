@@ -14,6 +14,11 @@ type Episode {
   Episode file UUID Key code
   """
   episode_code: String!
+    
+  """
+  The Release that this episode belongs to
+  """
+  Release: Release!
 }
 
 input EpisodesFilter {

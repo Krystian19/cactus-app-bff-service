@@ -72,3 +72,20 @@ func (r *queryResolver) Episodes(ctx context.Context, filter *gql.EpisodesFilter
 
 	return &gql.EpisodePaginatedList{Rows: response.Episodes, Count: int(response.Count)}, nil
 }
+
+func (r *episodeResolver) Release(ctx context.Context, parent *proto.Episode) (*proto.Release, error) {
+	client, err := releaseServiceClient()
+
+	if err != nil {
+		return nil, err
+	}
+
+	request := &proto.ReleaseRequest{Id: parent.ReleaseId}
+	response, err := client.Release(ctx, request)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return response.Release, nil
+}

@@ -23,3 +23,8 @@ func (r *Resolver) Query() gql.QueryResolver {
 func (r *Resolver) Anime() gql.AnimeResolver {
 	return &animeResolver{r}
 }
+
+// Episode : returns a EpisodeResolver struct which implements the gql.EpisodeResolver interface.
+func (r *Resolver) Episode() gql.EpisodeResolver {
+	return &episodeResolver{r}
+}
