@@ -5,7 +5,7 @@ go 1.12
 require (
 	cloud.google.com/go v0.46.3 // indirect
 	github.com/99designs/gqlgen v0.9.3
-	github.com/Krystian19/cactus-core v0.0.0-20190921090010-5ca1c1041a5f
+	github.com/Krystian19/cactus-core v0.0.0-20190921100027-81a410f8d488
 	github.com/denisenkom/go-mssqldb v0.0.0-20190920000552-128d9f4ae1cd // indirect
 	github.com/google/go-cmp v0.3.1 // indirect
 	github.com/google/pprof v0.0.0-20190908185732-236ed259b199 // indirect
