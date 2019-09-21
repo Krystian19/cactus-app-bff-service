@@ -16,3 +16,5 @@ models:
     model: github.com/Krystian19/cactus-core/proto.Anime
   Release:
     model: github.com/Krystian19/cactus-core/proto.Release
+  Episode:
+    model: github.com/Krystian19/cactus-core/proto.Episode

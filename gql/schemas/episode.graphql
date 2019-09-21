@@ -1,0 +1,34 @@
+
+"""
+Episode schema.
+"""
+type Episode {
+  id: Int!
+
+  """
+  Thumbnail of this category
+  """
+  thumbnail: String
+
+  """
+  Episode file UUID Key code
+  """
+  episode_code: String!
+}
+
+input EpisodesFilter {
+  release_id: Int
+  
+  limit: Int = 10
+  offset: Int = 0
+}
+
+extend type Query {
+  Episode(id: Int): Episode
+  Episodes(input: EpisodesFilter): EpisodePaginatedList!
+}
+
+type EpisodePaginatedList {
+  rows: [Episode!]!,
+  count: Int!
+}
