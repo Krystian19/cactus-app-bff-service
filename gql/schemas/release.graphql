@@ -9,6 +9,11 @@ type Release {
   E.g Tokyo Ghoul:re
   """
   title: String
+
+  """
+  Background image file for this Release
+  """
+  background: String
 }
 
 input ReleasesFilter {
