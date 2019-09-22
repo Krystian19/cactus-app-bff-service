@@ -28,7 +28,7 @@ func main() {
 	// Limit the query complexity of the endpoint exposed to the outside
 	http.Handle("/graphql", handler.GraphQL(
 		gql.NewExecutableSchema(gqlConfig),
-		handler.ComplexityLimit(5), // GQL query complexity limit
+		// handler.ComplexityLimit(5), // GQL query complexity limit
 	))
 
 	log.Printf("GraphQL playground @ http://localhost:%s/", PORT)
