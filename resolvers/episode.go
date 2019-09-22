@@ -9,18 +9,9 @@ import (
 
 type episodeResolver struct{ *Resolver }
 
-func episodeServiceClient() (client proto.EpisodeServiceClient, err error) {
-	conn, err := InitGRPCConnection()
-
-	if err != nil {
-		return nil, err
-	}
-
-	return proto.NewEpisodeServiceClient(conn), nil
-}
-
 func (r *queryResolver) Episode(ctx context.Context, id *int) (*proto.Episode, error) {
-	client, err := episodeServiceClient()
+	conn, client, err := episodeServiceClient()
+	defer conn.Close()
 
 	if err != nil {
 		return nil, err
@@ -42,7 +33,8 @@ func (r *queryResolver) Episode(ctx context.Context, id *int) (*proto.Episode, e
 }
 
 func (r *queryResolver) Episodes(ctx context.Context, filter *gql.EpisodesFilter) (*gql.EpisodePaginatedList, error) {
-	client, err := episodeServiceClient()
+	conn, client, err := episodeServiceClient()
+	defer conn.Close()
 
 	if err != nil {
 		return nil, err
@@ -74,7 +66,8 @@ func (r *queryResolver) Episodes(ctx context.Context, filter *gql.EpisodesFilter
 }
 
 func (r *queryResolver) HottestEpisodes(ctx context.Context, limit *int, offset *int) (*gql.EpisodePaginatedList, error) {
-	client, err := episodeServiceClient()
+	conn, client, err := episodeServiceClient()
+	defer conn.Close()
 
 	if err != nil {
 		return nil, err
@@ -100,7 +93,8 @@ func (r *queryResolver) HottestEpisodes(ctx context.Context, limit *int, offset 
 }
 
 func (r *queryResolver) NewestEpisodes(ctx context.Context, limit *int, offset *int) (*gql.EpisodePaginatedList, error) {
-	client, err := episodeServiceClient()
+	conn, client, err := episodeServiceClient()
+	defer conn.Close()
 
 	if err != nil {
 		return nil, err
@@ -126,7 +120,8 @@ func (r *queryResolver) NewestEpisodes(ctx context.Context, limit *int, offset *
 }
 
 func (r *episodeResolver) Release(ctx context.Context, parent *proto.Episode) (*proto.Release, error) {
-	client, err := releaseServiceClient()
+	conn, client, err := releaseServiceClient()
+	defer conn.Close()
 
 	if err != nil {
 		return nil, err

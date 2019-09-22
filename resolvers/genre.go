@@ -9,18 +9,9 @@ import (
 
 type genreResolver struct{ *Resolver }
 
-func genreServiceClient() (client proto.GenreServiceClient, err error) {
-	conn, err := InitGRPCConnection()
-
-	if err != nil {
-		return nil, err
-	}
-
-	return proto.NewGenreServiceClient(conn), nil
-}
-
 func (r *queryResolver) Genre(ctx context.Context, id *int) (*proto.Genre, error) {
-	client, err := genreServiceClient()
+	conn, client, err := genreServiceClient()
+	defer conn.Close()
 
 	if err != nil {
 		return nil, err
@@ -42,7 +33,8 @@ func (r *queryResolver) Genre(ctx context.Context, id *int) (*proto.Genre, error
 }
 
 func (r *queryResolver) Genres(ctx context.Context, filter *gql.GenresFilter) (*gql.GenrePaginatedList, error) {
-	client, err := genreServiceClient()
+	conn, client, err := genreServiceClient()
+	defer conn.Close()
 
 	if err != nil {
 		return nil, err

@@ -8,18 +8,9 @@ import (
 
 type animeResolver struct{ *Resolver }
 
-func animeServiceClient() (client proto.AnimeServiceClient, err error) {
-	conn, err := InitGRPCConnection()
-
-	if err != nil {
-		return nil, err
-	}
-
-	return proto.NewAnimeServiceClient(conn), nil
-}
-
 func (r *queryResolver) Anime(ctx context.Context, id *int) (*proto.Anime, error) {
-	client, err := animeServiceClient()
+	conn, client, err := animeServiceClient()
+	defer conn.Close()
 
 	if err != nil {
 		return nil, err
@@ -41,7 +32,8 @@ func (r *queryResolver) Anime(ctx context.Context, id *int) (*proto.Anime, error
 }
 
 func (r *animeResolver) Releases(ctx context.Context, parent *proto.Anime) ([]*proto.Release, error) {
-	client, err := releaseServiceClient()
+	conn, client, err := releaseServiceClient()
+	defer conn.Close()
 
 	if err != nil {
 		return nil, err

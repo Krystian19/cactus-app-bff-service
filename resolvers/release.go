@@ -9,18 +9,9 @@ import (
 
 type releaseResolver struct{ *Resolver }
 
-func releaseServiceClient() (client proto.ReleaseServiceClient, err error) {
-	conn, err := InitGRPCConnection()
-
-	if err != nil {
-		return nil, err
-	}
-
-	return proto.NewReleaseServiceClient(conn), nil
-}
-
 func (r *queryResolver) Release(ctx context.Context, id *int) (*proto.Release, error) {
-	client, err := releaseServiceClient()
+	conn, client, err := releaseServiceClient()
+	defer conn.Close()
 
 	if err != nil {
 		return nil, err
@@ -42,7 +33,8 @@ func (r *queryResolver) Release(ctx context.Context, id *int) (*proto.Release, e
 }
 
 func (r *queryResolver) Releases(ctx context.Context, filter *gql.ReleasesFilter) (*gql.ReleasePaginatedList, error) {
-	client, err := releaseServiceClient()
+	conn, client, err := releaseServiceClient()
+	defer conn.Close()
 
 	if err != nil {
 		return nil, err
@@ -74,7 +66,8 @@ func (r *queryResolver) Releases(ctx context.Context, filter *gql.ReleasesFilter
 }
 
 func (r *releaseResolver) Anime(ctx context.Context, parent *proto.Release) (*proto.Anime, error) {
-	client, err := animeServiceClient()
+	conn, client, err := animeServiceClient()
+	defer conn.Close()
 
 	if err != nil {
 		return nil, err
