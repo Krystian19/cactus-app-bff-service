@@ -46,6 +46,8 @@ github.com/Krystian19/cactus-core v0.0.0-20190922063942-a1ea0ad53fbb h1:+E3Ag2rf
 github.com/Krystian19/cactus-core v0.0.0-20190922063942-a1ea0ad53fbb/go.mod h1:fuSM6i0MvBI5aL2j2qBXL/YxMfN0tcAuP509zHhhNdg=
 github.com/Krystian19/cactus-core v0.0.0-20190922120402-eebf68209890 h1:OMXM1JcgvihFa9jKuSX+QmynUM7Qa96uGjK9xk987+A=
 github.com/Krystian19/cactus-core v0.0.0-20190922120402-eebf68209890/go.mod h1:fuSM6i0MvBI5aL2j2qBXL/YxMfN0tcAuP509zHhhNdg=
+github.com/Krystian19/cactus-core v0.0.0-20190922124625-82cf5cba54f7 h1:CFFlo+glz8tgYQ2JOz/A2PNu1TN3gHseGU/M0nfRAlI=
+github.com/Krystian19/cactus-core v0.0.0-20190922124625-82cf5cba54f7/go.mod h1:fuSM6i0MvBI5aL2j2qBXL/YxMfN0tcAuP509zHhhNdg=
 github.com/Shopify/sarama v1.19.0/go.mod h1:FVkBWblsNy7DGZRfXLU0O9RCGt5g3g3yEuWXgklEdEo=
 github.com/Shopify/sarama v1.23.1/go.mod h1:XLH1GYJnLVE0XCr6KdJGVJRTwY30moWNJ4sERjXX6fs=
 github.com/Shopify/toxiproxy v2.1.4+incompatible/go.mod h1:OXgGpZ6Cli1/URJOF1DMxUHB2q5Ap20/P/eIdh4G0pI=

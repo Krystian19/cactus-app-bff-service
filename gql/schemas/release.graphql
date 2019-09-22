@@ -5,15 +5,30 @@ type Release {
   id: Int!
 
   """
+  E.g: This Release is the 2nd installment on the One Punch Man Franchise
+  """
+  release_order: Int!
+
+  """
   Title of the Release (Optional when releases have no particular name) \n
   E.g Tokyo Ghoul:re
   """
   title: String
 
   """
+  Poster image file for this Release
+  """
+  poster: String
+
+  """
   Background image file for this Release
   """
   background: String
+
+  """
+  This Release belongs to this Anime
+  """
+  Anime: Anime!
 }
 
 input ReleasesFilter {

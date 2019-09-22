@@ -7,6 +7,7 @@ import (
 // Resolver : Global resolver
 type Resolver struct{}
 type queryResolver struct{ *Resolver }
+
 // type mutationResolver struct{ *Resolver }
 
 // Query : returns a QueryResolver struct which contains all query resolvers.
@@ -22,6 +23,11 @@ func (r *Resolver) Query() gql.QueryResolver {
 // Anime : returns a AnimeResolver struct which implements the gql.AnimeResolver interface.
 func (r *Resolver) Anime() gql.AnimeResolver {
 	return &animeResolver{r}
+}
+
+// Release : returns a ReleaseResolver struct which implements the gql.ReleaseResolver interface.
+func (r *Resolver) Release() gql.ReleaseResolver {
+	return &releaseResolver{r}
 }
 
 // Episode : returns a EpisodeResolver struct which implements the gql.EpisodeResolver interface.
