@@ -37,9 +37,7 @@ func main() {
 
 // EnvVarsCheck : Checks that important ENV vars are set
 func EnvVarsCheck() {
-	CactusCoreURL := os.Getenv("CACTUS_CORE_URL")
-
-	if CactusCoreURL == "" {
+	if os.Getenv("CACTUS_CORE_URL") == "" {
 		panic("CACTUS_CORE_URL env var is not set")
 	}
 }

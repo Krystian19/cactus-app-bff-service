@@ -36,6 +36,16 @@ input EpisodesFilter {
 extend type Query {
   Episode(id: Int): Episode
   Episodes(input: EpisodesFilter): EpisodePaginatedList!
+
+  """
+  The most watched episodes
+  """
+  HottestEpisodes(limit: Int = 5, offset: Int = 0): EpisodePaginatedList!
+
+  """
+  Get the newest episodes available
+  """
+  NewestEpisodes(limit: Int = 8, offset: Int = 0): EpisodePaginatedList!
 }
 
 type EpisodePaginatedList {

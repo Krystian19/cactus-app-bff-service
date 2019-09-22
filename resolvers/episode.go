@@ -73,6 +73,58 @@ func (r *queryResolver) Episodes(ctx context.Context, filter *gql.EpisodesFilter
 	return &gql.EpisodePaginatedList{Rows: response.Episodes, Count: int(response.Count)}, nil
 }
 
+func (r *queryResolver) HottestEpisodes(ctx context.Context, limit *int, offset *int) (*gql.EpisodePaginatedList, error) {
+	client, err := episodeServiceClient()
+
+	if err != nil {
+		return nil, err
+	}
+
+	request := &proto.EpisodesRequest{Query: &proto.EpisodeQuery{}}
+
+	if limit != nil {
+		request.Query.Limit = int64(*limit)
+	}
+
+	if offset != nil {
+		request.Query.Offset = int64(*offset)
+	}
+
+	response, err := client.HottestEpisodes(ctx, request)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return &gql.EpisodePaginatedList{Rows: response.Episodes, Count: int(response.Count)}, nil
+}
+
+func (r *queryResolver) NewestEpisodes(ctx context.Context, limit *int, offset *int) (*gql.EpisodePaginatedList, error) {
+	client, err := episodeServiceClient()
+
+	if err != nil {
+		return nil, err
+	}
+
+	request := &proto.EpisodesRequest{Query: &proto.EpisodeQuery{}}
+
+	if limit != nil {
+		request.Query.Limit = int64(*limit)
+	}
+
+	if offset != nil {
+		request.Query.Offset = int64(*offset)
+	}
+
+	response, err := client.NewestEpisodes(ctx, request)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return &gql.EpisodePaginatedList{Rows: response.Episodes, Count: int(response.Count)}, nil
+}
+
 func (r *episodeResolver) Release(ctx context.Context, parent *proto.Episode) (*proto.Release, error) {
 	client, err := releaseServiceClient()
 
