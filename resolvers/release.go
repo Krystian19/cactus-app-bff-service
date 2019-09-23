@@ -65,6 +65,23 @@ func (r *queryResolver) Releases(ctx context.Context, filter *gql.ReleasesFilter
 	return &gql.ReleasePaginatedList{Rows: response.Releases, Count: int(response.Count)}, nil
 }
 
+func (r *queryResolver) RandomRelease(ctx context.Context) (*proto.Release, error) {
+	conn, client, err := releaseServiceClient()
+	defer conn.Close()
+
+	if err != nil {
+		return nil, err
+	}
+
+	response, err := client.RandomRelease(ctx, &proto.Empty{})
+
+	if err != nil {
+		return nil, err
+	}
+
+	return response.Release, nil
+}
+
 func (r *releaseResolver) Anime(ctx context.Context, parent *proto.Release) (*proto.Anime, error) {
 	conn, client, err := animeServiceClient()
 	defer conn.Close()

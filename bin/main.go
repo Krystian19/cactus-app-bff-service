@@ -10,11 +10,13 @@ import (
 	"github.com/Krystian19/cactus-bff/resolvers"
 )
 
+const defaultPort = "3000"
+
 func main() {
 	PORT := os.Getenv("PORT")
 
 	if PORT == "" {
-		PORT = "3000"
+		PORT = defaultPort
 	}
 
 	// Check for important env vars
