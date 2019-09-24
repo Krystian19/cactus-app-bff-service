@@ -16,6 +16,16 @@ type Release {
   title: String
 
   """
+  When the release started airing (Which will be the release date in the case of a Movie)
+  """
+  started_airing: String!
+
+  """
+  When the release finished airing (Not aplicable to Movies, OVAs, etc...)
+  """
+  stopped_airing: String
+
+  """
   Poster image file for this Release
   """
   poster: String
@@ -24,6 +34,16 @@ type Release {
   Background image file for this Release
   """
   background: String
+
+  """
+  When you only need the count of episodes and no actual episode data
+  """
+  EpisodeCount: Int!
+
+  """
+  Returns the latest episode of this Release
+  """
+  LatestEpisode: Episode
 
   """
   This Release belongs to this Anime
@@ -42,6 +62,7 @@ extend type Query {
   Release(id: Int): Release
   Releases(input: ReleasesFilter): ReleasePaginatedList!
   RandomRelease: Release
+  AiringReleases: [Release!]!
 }
 
 type ReleasePaginatedList {

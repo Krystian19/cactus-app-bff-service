@@ -5,8 +5,8 @@ go 1.12
 require (
 	cloud.google.com/go v0.46.3 // indirect
 	github.com/99designs/gqlgen v0.9.3
-	github.com/Krystian19/cactus-core v0.0.0-20190923204032-2195a7c58d1b
-	github.com/denisenkom/go-mssqldb v0.0.0-20190920000552-128d9f4ae1cd // indirect
+	github.com/Krystian19/cactus-core v0.0.0-20190924210858-e08b2481fa18
+	github.com/denisenkom/go-mssqldb v0.0.0-20190924004331-208c0a498538 // indirect
 	github.com/google/go-cmp v0.3.1 // indirect
 	github.com/google/pprof v0.0.0-20190908185732-236ed259b199 // indirect
 	github.com/hashicorp/golang-lru v0.5.3 // indirect
@@ -22,8 +22,9 @@ require (
 	golang.org/x/mobile v0.0.0-20190923204409-d3ece3b6da5f // indirect
 	golang.org/x/net v0.0.0-20190923162816-aa69164e4478 // indirect
 	golang.org/x/sync v0.0.0-20190911185100-cd5d95a43a6e // indirect
+	golang.org/x/sys v0.0.0-20190924154521-2837fb4f24fe // indirect
 	golang.org/x/time v0.0.0-20190921001708-c4c64cad1fd0 // indirect
-	golang.org/x/tools v0.0.0-20190923195354-c85f9fa9581e // indirect
+	golang.org/x/tools v0.0.0-20190924170908-c006dc79eb54 // indirect
 	google.golang.org/api v0.10.0 // indirect
 	google.golang.org/appengine v1.6.3 // indirect
 	google.golang.org/genproto v0.0.0-20190916214212-f660b8655731 // indirect

@@ -82,6 +82,58 @@ func (r *queryResolver) RandomRelease(ctx context.Context) (*proto.Release, erro
 	return response.Release, nil
 }
 
+func (r *queryResolver) AiringReleases(ctx context.Context) ([]*proto.Release, error) {
+	conn, client, err := releaseServiceClient()
+	defer conn.Close()
+
+	if err != nil {
+		return nil, err
+	}
+
+	response, err := client.AiringReleases(ctx, &proto.Empty{})
+
+	if err != nil {
+		return nil, err
+	}
+
+	return response.Releases, nil
+}
+
+func (r *releaseResolver) EpisodeCount(ctx context.Context, parent *proto.Release) (int, error) {
+	conn, client, err := episodeServiceClient()
+	defer conn.Close()
+
+	if err != nil {
+		return 0, err
+	}
+
+	response, err := client.EpisodeCount(ctx, &proto.EpisodeCountRequest{ReleaseId: parent.Id})
+
+	if err != nil {
+		return 0, err
+	}
+
+	return int(response.Count), nil
+}
+
+func (r *releaseResolver) LatestEpisode(ctx context.Context, parent *proto.Release) (*proto.Episode, error) {
+	conn, client, err := episodeServiceClient()
+	defer conn.Close()
+
+	if err != nil {
+		return nil, err
+	}
+
+	request := &proto.LatestEpisodeRequest{ReleaseId: parent.Id}
+	response, err := client.LatestEpisode(ctx, request)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return response.Episode, nil
+}
+
 func (r *releaseResolver) Anime(ctx context.Context, parent *proto.Release) (*proto.Anime, error) {
 	conn, client, err := animeServiceClient()
 	defer conn.Close()
