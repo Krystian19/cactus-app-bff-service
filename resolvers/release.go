@@ -47,6 +47,10 @@ func (r *queryResolver) Releases(ctx context.Context, filter *gql.ReleasesFilter
 			request.Query.AnimeId = int64(*filter.AnimeID)
 		}
 
+		if filter.Title != nil {
+			request.Query.Title = *filter.Title
+		}
+
 		if filter.Limit != nil {
 			request.Query.Limit = int64(*filter.Limit)
 		}

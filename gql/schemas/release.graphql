@@ -53,6 +53,7 @@ type Release {
 
 input ReleasesFilter {
   anime_id: Int
+  title: String
 
 	limit: Int = 10
   offset: Int = 0
