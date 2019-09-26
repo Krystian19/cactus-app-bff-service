@@ -55,6 +55,9 @@ input ReleasesFilter {
   anime_id: Int
   title: String
 
+  # Filter based on the Genres that this Release belongs to E.g: Get me only the Releases that have 'Action' and 'Sci-Fi' ...
+  Genres: [Int!]
+
 	limit: Int = 10
   offset: Int = 0
 }

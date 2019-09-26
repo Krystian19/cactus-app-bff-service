@@ -51,6 +51,16 @@ func (r *queryResolver) Releases(ctx context.Context, filter *gql.ReleasesFilter
 			request.Query.Title = *filter.Title
 		}
 
+		if len(filter.Genres) > 0 {
+			genres := []int64{}
+
+			for _, v := range filter.Genres {
+				genres = append(genres, int64(v))
+			}
+
+			request.Query.Genres = genres
+		}
+
 		if filter.Limit != nil {
 			request.Query.Limit = int64(*filter.Limit)
 		}

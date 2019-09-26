@@ -5,7 +5,7 @@ go 1.12
 require (
 	cloud.google.com/go v0.46.3 // indirect
 	github.com/99designs/gqlgen v0.9.3
-	github.com/Krystian19/cactus-core v0.0.0-20190925202133-7f4e8280b330
+	github.com/Krystian19/cactus-core v0.0.0-20190926133011-951b61d036ad
 	github.com/creack/pty v1.1.9 // indirect
 	github.com/denisenkom/go-mssqldb v0.0.0-20190924004331-208c0a498538 // indirect
 	github.com/google/go-cmp v0.3.1 // indirect
@@ -17,7 +17,7 @@ require (
 	github.com/rogpeppe/go-internal v1.4.0 // indirect
 	github.com/vektah/gqlparser v1.1.2
 	go.opencensus.io v0.22.1 // indirect
-	golang.org/x/crypto v0.0.0-20190923035154-9ee001bba392 // indirect
+	golang.org/x/crypto v0.0.0-20190926114937-fa1a29108794 // indirect
 	golang.org/x/exp v0.0.0-20190925190815-26a69ce95baf // indirect
 	golang.org/x/image v0.0.0-20190910094157-69e4b8554b2a // indirect
 	golang.org/x/mobile v0.0.0-20190923204409-d3ece3b6da5f // indirect
