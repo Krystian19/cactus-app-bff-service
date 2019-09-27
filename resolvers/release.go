@@ -148,6 +148,23 @@ func (r *releaseResolver) LatestEpisode(ctx context.Context, parent *proto.Relea
 	return response.Episode, nil
 }
 
+func (r *releaseResolver) Descriptions(ctx context.Context, parent *proto.Release) ([]*proto.ReleaseDescription, error) {
+	conn, client, err := releaseDescriptionClient()
+	defer conn.Close()
+
+	if err != nil {
+		return nil, err
+	}
+
+	response, err := client.ReleaseDescriptions(ctx, &proto.ReleaseDescriptionsRequest{ReleaseId: parent.Id})
+
+	if err != nil {
+		return nil, err
+	}
+
+	return response.ReleaseDescriptions, nil
+}
+
 func (r *releaseResolver) Anime(ctx context.Context, parent *proto.Release) (*proto.Anime, error) {
 	conn, client, err := animeServiceClient()
 	defer conn.Close()

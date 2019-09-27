@@ -26,6 +26,8 @@ github.com/Krystian19/cactus-core v0.0.0-20190927084942-a1efdb486268 h1:x8tIHp6S
 github.com/Krystian19/cactus-core v0.0.0-20190927084942-a1efdb486268/go.mod h1:fuSM6i0MvBI5aL2j2qBXL/YxMfN0tcAuP509zHhhNdg=
 github.com/Krystian19/cactus-core v0.0.0-20190927094627-b965f3ca8bbe h1:bc8DUu2SY/QsEnykHrKD/Zxy6CulyUewUSMuYetF0qU=
 github.com/Krystian19/cactus-core v0.0.0-20190927094627-b965f3ca8bbe/go.mod h1:fuSM6i0MvBI5aL2j2qBXL/YxMfN0tcAuP509zHhhNdg=
+github.com/Krystian19/cactus-core v0.0.0-20190927125845-e0a4237f527f h1:b4jqaiqfhjRxwuN63iweLZ1NJNMQu8oj3ksvgfPzyeg=
+github.com/Krystian19/cactus-core v0.0.0-20190927125845-e0a4237f527f/go.mod h1:fuSM6i0MvBI5aL2j2qBXL/YxMfN0tcAuP509zHhhNdg=
 github.com/Shopify/sarama v1.19.0/go.mod h1:FVkBWblsNy7DGZRfXLU0O9RCGt5g3g3yEuWXgklEdEo=
 github.com/Shopify/sarama v1.23.1/go.mod h1:XLH1GYJnLVE0XCr6KdJGVJRTwY30moWNJ4sERjXX6fs=
 github.com/Shopify/toxiproxy v2.1.4+incompatible/go.mod h1:OXgGpZ6Cli1/URJOF1DMxUHB2q5Ap20/P/eIdh4G0pI=
@@ -228,6 +230,7 @@ golang.org/x/crypto v0.0.0-20190605123033-f99c8df09eb5/go.mod h1:yigFU9vqHzYiE8U
 golang.org/x/crypto v0.0.0-20190923035154-9ee001bba392/go.mod h1:/lpIB1dKB+9EgE3H3cr1v9wB50oz8l4C4h62xy7jSTY=
 golang.org/x/crypto v0.0.0-20190926114937-fa1a29108794/go.mod h1:/lpIB1dKB+9EgE3H3cr1v9wB50oz8l4C4h62xy7jSTY=
 golang.org/x/crypto v0.0.0-20190926180335-cea2066c6411/go.mod h1:yigFU9vqHzYiE8UmvKecakEJjdnWj3jj499lnFckfCI=
+golang.org/x/crypto v0.0.0-20190927123631-a832865fa7ad/go.mod h1:yigFU9vqHzYiE8UmvKecakEJjdnWj3jj499lnFckfCI=
 golang.org/x/exp v0.0.0-20190121172915-509febef88a4/go.mod h1:CJ0aWSM057203Lf6IL+f9T1iT9GByDxfZKAQTCR3kQA=
 golang.org/x/exp v0.0.0-20190306152737-a1d7652674e8/go.mod h1:CJ0aWSM057203Lf6IL+f9T1iT9GByDxfZKAQTCR3kQA=
 golang.org/x/exp v0.0.0-20190510132918-efd6b22b2522/go.mod h1:ZjyILWgesfNpC6sMxTJOJm9Kp84zZh5NQWvqDGG3Qr8=

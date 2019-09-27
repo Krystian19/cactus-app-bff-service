@@ -46,6 +46,11 @@ type Release {
   LatestEpisode: Episode
 
   """
+  List of descriptions of this Release in many languages
+  """
+  Descriptions: [ReleaseDescription!]!
+
+  """
   This Release belongs to this Anime
   """
   Anime: Anime!

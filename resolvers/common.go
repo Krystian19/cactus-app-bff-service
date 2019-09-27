@@ -12,6 +12,17 @@ func InitGRPCConnection() (conn *grpc.ClientConn, err error) {
 	return grpc.Dial(os.Getenv("CACTUS_CORE_URL"), grpc.WithInsecure())
 }
 
+func languageServiceClient() (*grpc.ClientConn, proto.LanguageServiceClient, error) {
+	conn, err := InitGRPCConnection()
+
+	if err != nil {
+		conn.Close()
+		return nil, nil, err
+	}
+
+	return conn, proto.NewLanguageServiceClient(conn), nil
+}
+
 func animeServiceClient() (*grpc.ClientConn, proto.AnimeServiceClient, error) {
 	conn, err := InitGRPCConnection()
 
@@ -54,4 +65,15 @@ func releaseServiceClient() (*grpc.ClientConn, proto.ReleaseServiceClient, error
 	}
 
 	return conn, proto.NewReleaseServiceClient(conn), nil
+}
+
+func releaseDescriptionClient() (*grpc.ClientConn, proto.ReleaseDescriptionServiceClient, error) {
+	conn, err := InitGRPCConnection()
+
+	if err != nil {
+		conn.Close()
+		return nil, nil, err
+	}
+
+	return conn, proto.NewReleaseDescriptionServiceClient(conn), nil
 }

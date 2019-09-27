@@ -30,6 +30,11 @@ func (r *Resolver) Release() gql.ReleaseResolver {
 	return &releaseResolver{r}
 }
 
+// ReleaseDescription : returns a ReleaseDescriptionResolver struct which implements the gql.ReleaseDescriptionResolver interface.
+func (r *Resolver) ReleaseDescription() gql.ReleaseDescriptionResolver {
+	return &releaseDescriptionResolver{r}
+}
+
 // Episode : returns a EpisodeResolver struct which implements the gql.EpisodeResolver interface.
 func (r *Resolver) Episode() gql.EpisodeResolver {
 	return &episodeResolver{r}
