@@ -49,6 +49,11 @@ type Release {
   This Release belongs to this Anime
   """
   Anime: Anime!
+
+  """
+  Genres that this release fits into
+  """
+  Genres: [Genre!]!
 }
 
 input ReleasesFilter {

@@ -165,3 +165,20 @@ func (r *releaseResolver) Anime(ctx context.Context, parent *proto.Release) (*pr
 
 	return response.Anime, nil
 }
+
+func (r *releaseResolver) Genres(ctx context.Context, parent *proto.Release) ([]*proto.Genre, error) {
+	conn, client, err := genreServiceClient()
+	defer conn.Close()
+
+	if err != nil {
+		return nil, err
+	}
+
+	response, err := client.ReleaseGenres(ctx, &proto.ReleaseGenresRequest{ReleaseId: parent.Id})
+
+	if err != nil {
+		return nil, err
+	}
+
+	return response.Genres, nil
+}
