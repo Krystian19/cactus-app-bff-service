@@ -148,6 +148,33 @@ func (r *releaseResolver) LatestEpisode(ctx context.Context, parent *proto.Relea
 	return response.Episode, nil
 }
 
+func (r *releaseResolver) Episodes(ctx context.Context, parent *proto.Release, limit *int, offset *int) (*gql.EpisodePaginatedList, error) {
+	conn, client, err := episodeServiceClient()
+	defer conn.Close()
+
+	if err != nil {
+		return nil, err
+	}
+
+	request := &proto.EpisodesRequest{OrderBy: &proto.OrderBy{Field: "episode_order"}, Query: &proto.EpisodeQuery{ReleaseId: parent.Id}}
+
+	if limit != nil {
+		request.Query.Limit = int64(*limit)
+	}
+
+	if offset != nil {
+		request.Query.Offset = int64(*offset)
+	}
+
+	response, err := client.Episodes(ctx, request)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return &gql.EpisodePaginatedList{Rows: response.Episodes, Count: int(response.Count)}, nil
+}
+
 func (r *releaseResolver) Descriptions(ctx context.Context, parent *proto.Release) ([]*proto.ReleaseDescription, error) {
 	conn, client, err := releaseDescriptionClient()
 	defer conn.Close()

@@ -46,6 +46,11 @@ type Release {
   LatestEpisode: Episode
 
   """
+  Episodes of this release
+  """
+  Episodes(limit: Int = 10, offset: Int = 0): EpisodePaginatedList!
+
+  """
   List of descriptions of this Release in many languages
   """
   Descriptions: [ReleaseDescription!]!
