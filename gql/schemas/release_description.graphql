@@ -1,0 +1,21 @@
+"""
+ReleaseDescription schema.
+"""
+type ReleaseDescription {
+  id: Int!
+
+  """
+  Text body of this description model
+  """
+  description: String!
+
+  """
+  Language support of this description
+  """
+  Language: Language!
+
+  """
+  This description model belongs to the Release x.
+  """
+  Release: Release!
+}

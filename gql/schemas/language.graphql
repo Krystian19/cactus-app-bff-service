@@ -1,0 +1,16 @@
+"""
+Language schema
+"""
+type Language {
+  id: Int!
+
+  """
+  Name of the language e.g: 'Spanish'
+  """
+  name: String!
+
+  """
+  Corresponding ISO code
+  """
+  iso_code: String!
+}
