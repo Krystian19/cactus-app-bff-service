@@ -1,0 +1,17 @@
+"""
+EpisodeSubtitle belongs to an Episode,
+and an Episode might have multiple EpisodeSubtitles based on available Languages
+"""
+type EpisodeSubtitle {
+  id: Int!
+  
+  """
+  Title of this episode, in the expected language
+  """
+  subtitle_code: String!
+
+  """
+  Language of this episode
+  """
+  Language: Language!
+}

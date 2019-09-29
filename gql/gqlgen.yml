@@ -22,3 +22,5 @@ models:
     model: github.com/Krystian19/cactus-core/proto.ReleaseDescription
   Episode:
     model: github.com/Krystian19/cactus-core/proto.Episode
+  EpisodeSubtitle:
+    model: github.com/Krystian19/cactus-core/proto.EpisodeSubtitle

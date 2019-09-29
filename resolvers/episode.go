@@ -190,3 +190,20 @@ func (r *episodeResolver) Release(ctx context.Context, parent *proto.Episode) (*
 
 	return response.Release, nil
 }
+
+func (r *episodeResolver) EpisodeSubtitles(ctx context.Context, parent *proto.Episode) ([]*proto.EpisodeSubtitle, error) {
+	conn, client, err := episodeServiceClient()
+	defer conn.Close()
+
+	if err != nil {
+		return nil, err
+	}
+
+	response, err := client.EpisodeSubtitles(ctx, &proto.EpisodeSubtitlesRequest{EpisodeId: parent.Id})
+
+	if err != nil {
+		return nil, err
+	}
+
+	return response.EpisodeSubtitles, nil
+}

@@ -39,3 +39,8 @@ func (r *Resolver) ReleaseDescription() gql.ReleaseDescriptionResolver {
 func (r *Resolver) Episode() gql.EpisodeResolver {
 	return &episodeResolver{r}
 }
+
+// EpisodeSubtitle : returns a EpisodeSubtitle struct which implements the gql.EpisodeSubtitleResolver interface.
+func (r *Resolver) EpisodeSubtitle() gql.EpisodeSubtitleResolver {
+	return &episodeSubtitleResolver{r}
+}
