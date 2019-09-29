@@ -67,13 +67,3 @@ func releaseServiceClient() (*grpc.ClientConn, proto.ReleaseServiceClient, error
 	return conn, proto.NewReleaseServiceClient(conn), nil
 }
 
-func releaseDescriptionClient() (*grpc.ClientConn, proto.ReleaseDescriptionServiceClient, error) {
-	conn, err := InitGRPCConnection()
-
-	if err != nil {
-		conn.Close()
-		return nil, nil, err
-	}
-
-	return conn, proto.NewReleaseDescriptionServiceClient(conn), nil
-}

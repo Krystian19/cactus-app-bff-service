@@ -176,7 +176,7 @@ func (r *releaseResolver) Episodes(ctx context.Context, parent *proto.Release, l
 }
 
 func (r *releaseResolver) Descriptions(ctx context.Context, parent *proto.Release) ([]*proto.ReleaseDescription, error) {
-	conn, client, err := releaseDescriptionClient()
+	conn, client, err := releaseServiceClient()
 	defer conn.Close()
 
 	if err != nil {
