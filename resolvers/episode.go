@@ -119,6 +119,60 @@ func (r *queryResolver) NewestEpisodes(ctx context.Context, limit *int, offset *
 	return &gql.EpisodePaginatedList{Rows: response.Episodes, Count: int(response.Count)}, nil
 }
 
+func (r *episodeResolver) EarlierEpisode(ctx context.Context, parent *proto.Episode) (*proto.Episode, error) {
+	conn, client, err := episodeServiceClient()
+	defer conn.Close()
+
+	if err != nil {
+		return nil, err
+	}
+
+	response, err := client.Episode(ctx, &proto.EpisodeRequest{
+		ReleaseId: parent.ReleaseId,
+		LessThan: &proto.LessThan{
+			Field: "episode_order",
+			Value: parent.EpisodeOrder,
+		},
+		OrderBy: &proto.OrderBy{
+			Field:      "episode_order",
+			Descending: true,
+		},
+	})
+
+	if err != nil {
+		return nil, err
+	}
+
+	return response.Episode, nil
+}
+
+func (r *episodeResolver) LaterEpisode(ctx context.Context, parent *proto.Episode) (*proto.Episode, error) {
+	conn, client, err := episodeServiceClient()
+	defer conn.Close()
+
+	if err != nil {
+		return nil, err
+	}
+
+	response, err := client.Episode(ctx, &proto.EpisodeRequest{
+		ReleaseId: parent.ReleaseId,
+		GreaterThan: &proto.GreaterThan{
+			Field: "episode_order",
+			Value: parent.EpisodeOrder,
+		},
+		OrderBy: &proto.OrderBy{
+			Field:      "episode_order",
+			Descending: false,
+		},
+	})
+
+	if err != nil {
+		return nil, err
+	}
+
+	return response.Episode, nil
+}
+
 func (r *episodeResolver) Release(ctx context.Context, parent *proto.Episode) (*proto.Release, error) {
 	conn, client, err := releaseServiceClient()
 	defer conn.Close()

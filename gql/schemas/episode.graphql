@@ -19,6 +19,16 @@ type Episode {
   Episode file UUID Key code
   """
   episode_code: String!
+
+  """
+  What is the episode before this one ?
+  """
+  EarlierEpisode: Episode
+
+  """
+  What is the episode after this one ?
+  """
+  LaterEpisode: Episode
     
   """
   The Release that this episode belongs to
