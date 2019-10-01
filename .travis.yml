@@ -11,5 +11,5 @@ before_install:
   # Build the docker image
   - docker build -t janguzman/cactus_bff .
 install:
-  - docker run -ti --name=cactus_bff -d -e CACTUS_CORE_URL=cactus.core:9040 -v $(pwd):/app -p 9040:9040 --network=testing_network janguzman/cactus_bff
+  - docker run -ti --name=cactus_bff -d -e CACTUS_CORE_URL=cactus.core:9040 -v $(pwd):/app -p 9040:9040 janguzman/cactus_bff
   - docker ps -a
