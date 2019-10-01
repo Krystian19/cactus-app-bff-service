@@ -11,5 +11,12 @@ before_install:
   # Build the docker image
   - docker build -t janguzman/cactus_bff .
 install:
-  - docker run -ti --name=cactus_bff -d -e CACTUS_CORE_URL=cactus.core:9040 -v $(pwd):/app -p 9040:9040 janguzman/cactus_bff
+  - docker run -ti --name=cactus_bff -d -e CACTUS_CORE_URL=cactus.core:9040 -v $(pwd):/app -p 4000:3000 janguzman/cactus_bff
   - docker ps -a
+
+script:
+  # Wait for a minute to give time for the container to start properly
+  - sleep 1m
+
+  # Test if the GraphQL playground is running
+  - curl -I --fail http://localhost:4000/
