@@ -1,0 +1,11 @@
+"""
+ReleaseType schema. Releases can be Releases, Movies, OVAs, Specials ....
+"""
+type ReleaseType {
+  id: Int!
+
+  """
+  Title of this Release Type
+  """
+  title: String!
+}

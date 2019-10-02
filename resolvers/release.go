@@ -226,3 +226,20 @@ func (r *releaseResolver) Genres(ctx context.Context, parent *proto.Release) ([]
 
 	return response.Genres, nil
 }
+
+func (r *releaseResolver) ReleaseType(ctx context.Context, parent *proto.Release) (*proto.ReleaseType, error) {
+	conn, client, err := releaseServiceClient()
+	defer conn.Close()
+
+	if err != nil {
+		return nil, err
+	}
+
+	response, err := client.ReleaseType(ctx, &proto.ReleaseTypeRequest{Id: parent.ReleaseTypeId})
+
+	if err != nil {
+		return nil, err
+	}
+
+	return response.ReleaseType, nil
+}

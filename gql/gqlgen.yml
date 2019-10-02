@@ -20,6 +20,8 @@ models:
     model: github.com/Krystian19/cactus-core/proto.Release
   ReleaseDescription:
     model: github.com/Krystian19/cactus-core/proto.ReleaseDescription
+  ReleaseType:
+    model: github.com/Krystian19/cactus-core/proto.ReleaseType
   Episode:
     model: github.com/Krystian19/cactus-core/proto.Episode
   EpisodeSubtitle:

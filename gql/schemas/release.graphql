@@ -64,6 +64,11 @@ type Release {
   Genres that this release fits into
   """
   Genres: [Genre!]!
+
+  """
+  Is this release a Season, Movie, OVA or Special ?
+  """
+  ReleaseType: ReleaseType!
 }
 
 input ReleasesFilter {
