@@ -63,6 +63,13 @@ extend type Query {
   NewestEpisodes(limit: Int = 8, offset: Int = 0): EpisodePaginatedList!
 }
 
+type Mutation {
+  """
+  Marks x episode as "seen"
+  """
+  EpisodeSeen(episode_id: Int!): Boolean!
+}
+
 type EpisodePaginatedList {
   rows: [Episode!]!,
   count: Int!

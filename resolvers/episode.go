@@ -207,3 +207,18 @@ func (r *episodeResolver) EpisodeSubtitles(ctx context.Context, parent *proto.Ep
 
 	return response.EpisodeSubtitles, nil
 }
+
+func (r *mutationResolver) EpisodeSeen(ctx context.Context, EpisodeID int) (bool, error) {
+	conn, client, err := episodeServiceClient()
+	defer conn.Close()
+
+	if err != nil {
+		return false, err
+	}
+
+	if _, err := client.EpisodeSeen(ctx, &proto.EpisodeSeenRequest{EpisodeId: int64(EpisodeID)}); err != nil {
+		return false, err
+	}
+
+	return true, nil
+}
