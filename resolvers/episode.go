@@ -73,14 +73,14 @@ func (r *queryResolver) HottestEpisodes(ctx context.Context, limit *int, offset 
 		return nil, err
 	}
 
-	request := &proto.EpisodesRequest{Query: &proto.EpisodeQuery{}}
+	request := &proto.PaginationRequest{}
 
 	if limit != nil {
-		request.Query.Limit = int64(*limit)
+		request.Limit = int64(*limit)
 	}
 
 	if offset != nil {
-		request.Query.Offset = int64(*offset)
+		request.Offset = int64(*offset)
 	}
 
 	response, err := client.HottestEpisodes(ctx, request)
