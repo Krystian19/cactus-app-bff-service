@@ -100,7 +100,13 @@ func (r *queryResolver) NewestEpisodes(ctx context.Context, limit *int, offset *
 		return nil, err
 	}
 
-	request := &proto.EpisodesRequest{Query: &proto.EpisodeQuery{}}
+	request := &proto.EpisodesRequest{
+		OrderBy: &proto.OrderBy{
+			Field:      "created_at",
+			Descending: true,
+		},
+		Query: &proto.EpisodeQuery{},
+	}
 
 	if limit != nil {
 		request.Query.Limit = int64(*limit)
@@ -110,7 +116,7 @@ func (r *queryResolver) NewestEpisodes(ctx context.Context, limit *int, offset *
 		request.Query.Offset = int64(*offset)
 	}
 
-	response, err := client.NewestEpisodes(ctx, request)
+	response, err := client.Episodes(ctx, request)
 
 	if err != nil {
 		return nil, err
