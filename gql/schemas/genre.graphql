@@ -18,14 +18,11 @@ type Genre {
 
 input GenresFilter {
   title: String
-  
-  limit: Int = 8
-  offset: Int = 0
 }
 
 extend type Query {
   Genre(id: Int): Genre
-  Genres(input: GenresFilter): GenrePaginatedList!
+  Genres(filter: GenresFilter, limit: Int = 8, offset: Int = 0): GenrePaginatedList!
 }
 
 type GenrePaginatedList {

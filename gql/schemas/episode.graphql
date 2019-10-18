@@ -43,14 +43,11 @@ type Episode {
 
 input EpisodesFilter {
   release_id: Int
-  
-  limit: Int = 10
-  offset: Int = 0
 }
 
 extend type Query {
   Episode(id: Int): Episode
-  Episodes(input: EpisodesFilter): EpisodePaginatedList!
+  Episodes(filter: EpisodesFilter, limit: Int = 10, offset: Int = 0): EpisodePaginatedList!
 
   """
   The most watched episodes

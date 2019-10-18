@@ -32,7 +32,7 @@ func (r *queryResolver) Genre(ctx context.Context, id *int) (*proto.Genre, error
 	return response.Genre, nil
 }
 
-func (r *queryResolver) Genres(ctx context.Context, filter *gql.GenresFilter) (*gql.GenrePaginatedList, error) {
+func (r *queryResolver) Genres(ctx context.Context, filter *gql.GenresFilter, Limit *int, Offset *int) (*gql.GenrePaginatedList, error) {
 	conn, client, err := genreServiceClient()
 	defer conn.Close()
 
@@ -46,14 +46,14 @@ func (r *queryResolver) Genres(ctx context.Context, filter *gql.GenresFilter) (*
 		if filter.Title != nil {
 			request.Query.Title = *filter.Title
 		}
+	}
 
-		if filter.Limit != nil {
-			request.Query.Limit = int64(*filter.Limit)
-		}
+	if Limit != nil {
+		request.Query.Limit = int64(*Limit)
+	}
 
-		if filter.Offset != nil {
-			request.Query.Offset = int64(*filter.Offset)
-		}
+	if Offset != nil {
+		request.Query.Offset = int64(*Offset)
 	}
 
 	response, err := client.Genres(ctx, request)

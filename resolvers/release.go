@@ -32,7 +32,7 @@ func (r *queryResolver) Release(ctx context.Context, id *int) (*proto.Release, e
 	return response.Release, nil
 }
 
-func (r *queryResolver) Releases(ctx context.Context, filter *gql.ReleasesFilter) (*gql.ReleasePaginatedList, error) {
+func (r *queryResolver) Releases(ctx context.Context, filter *gql.ReleasesFilter, Limit *int, Offset *int) (*gql.ReleasePaginatedList, error) {
 	conn, client, err := releaseServiceClient()
 	defer conn.Close()
 
@@ -60,14 +60,14 @@ func (r *queryResolver) Releases(ctx context.Context, filter *gql.ReleasesFilter
 
 			request.Query.Genres = genres
 		}
+	}
 
-		if filter.Limit != nil {
-			request.Query.Limit = int64(*filter.Limit)
-		}
+	if Limit != nil {
+		request.Query.Limit = int64(*Limit)
+	}
 
-		if filter.Offset != nil {
-			request.Query.Offset = int64(*filter.Offset)
-		}
+	if Offset != nil {
+		request.Query.Offset = int64(*Offset)
 	}
 
 	response, err := client.Releases(ctx, request)
@@ -148,7 +148,7 @@ func (r *releaseResolver) LatestEpisode(ctx context.Context, parent *proto.Relea
 	return response.Episode, nil
 }
 
-func (r *releaseResolver) Episodes(ctx context.Context, parent *proto.Release, limit *int, offset *int) (*gql.EpisodePaginatedList, error) {
+func (r *releaseResolver) Episodes(ctx context.Context, parent *proto.Release, Limit *int, Offset *int) (*gql.EpisodePaginatedList, error) {
 	conn, client, err := episodeServiceClient()
 	defer conn.Close()
 
@@ -158,12 +158,12 @@ func (r *releaseResolver) Episodes(ctx context.Context, parent *proto.Release, l
 
 	request := &proto.EpisodesRequest{OrderBy: &proto.OrderBy{Field: "episode_order"}, Query: &proto.EpisodeQuery{ReleaseId: parent.Id}}
 
-	if limit != nil {
-		request.Query.Limit = int64(*limit)
+	if Limit != nil {
+		request.Query.Limit = int64(*Limit)
 	}
 
-	if offset != nil {
-		request.Query.Offset = int64(*offset)
+	if Offset != nil {
+		request.Query.Offset = int64(*Offset)
 	}
 
 	response, err := client.Episodes(ctx, request)
