@@ -27,9 +27,13 @@ func main() {
 	http.Handle("/", handler.Playground("GraphQL playground", "/playground_graphql"))
 	http.Handle("/playground_graphql", handler.GraphQL(gql.NewExecutableSchema(gqlConfig)))
 
-	// Limit the query complexity of the endpoint exposed to the outside
 	http.Handle("/graphql", handler.GraphQL(
 		gql.NewExecutableSchema(gqlConfig),
+
+		// Disable introspection for the endpoint exposed to the outside
+		handler.IntrospectionEnabled(false),
+
+		// Limit the query complexity of the endpoint exposed to the outside
 		// handler.ComplexityLimit(5), // GQL query complexity limit
 	))
 
