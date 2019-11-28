@@ -6,7 +6,7 @@ WORKDIR /go/src/app
 COPY . .
 EXPOSE 3000
 
-RUN apk add make git gcc libc-dev
+RUN apk add make git gcc libc-dev curl
 
 RUN go get github.com/unknwon/bra
 
