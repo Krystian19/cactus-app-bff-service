@@ -1,8 +1,6 @@
 type Anime {
   id: Int!
   title: String!
-  created_at: String!
-  updated_at: String!
 
   Releases: [Release!]!
 }
