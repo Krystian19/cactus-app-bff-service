@@ -6,7 +6,7 @@ type EpisodeSubtitle {
   id: Int!
   
   """
-  Title of this episode, in the expected language
+  Subtitle file name for this specific language
   """
   subtitle_code: String!
 
