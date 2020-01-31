@@ -138,8 +138,13 @@ func (r *releaseResolver) LatestEpisode(ctx context.Context, parent *proto.Relea
 		return nil, err
 	}
 
-	request := &proto.LatestEpisodeRequest{ReleaseId: parent.Id}
-	response, err := client.LatestEpisode(ctx, request)
+	response, err := client.Episode(ctx, &proto.EpisodeRequest{
+		ReleaseId: parent.Id,
+		OrderBy: &proto.OrderBy{
+			Field:      "episode_order",
+			Descending: true,
+		},
+	})
 
 	if err != nil {
 		return nil, err
