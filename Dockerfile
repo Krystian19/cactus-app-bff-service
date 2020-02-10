@@ -1,6 +1,6 @@
 FROM golang:1.13.2-alpine3.10
 
-ENV GO111MODULE=on
+ENV GO111MODULE=auto
 
 WORKDIR /go/src/app
 COPY . .
