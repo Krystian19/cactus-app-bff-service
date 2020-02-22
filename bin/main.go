@@ -10,7 +10,10 @@ import (
 	"github.com/Krystian19/cactus-bff/resolvers"
 )
 
-const defaultPort = "3000"
+const (
+	defaultPort      = "3000"
+	gqlPlaygroundURL = "/playground_graphql"
+)
 
 func main() {
 	PORT := os.Getenv("PORT")
@@ -24,8 +27,8 @@ func main() {
 
 	gqlConfig := gql.Config{Resolvers: &resolvers.Resolver{}}
 
-	http.Handle("/", handler.Playground("GraphQL playground", "/playground_graphql"))
-	http.Handle("/playground_graphql", handler.GraphQL(gql.NewExecutableSchema(gqlConfig)))
+	http.Handle("/", handler.Playground("GraphQL playground", gqlPlaygroundURL))
+	http.Handle(gqlPlaygroundURL, handler.GraphQL(gql.NewExecutableSchema(gqlConfig)))
 
 	http.Handle("/graphql", handler.GraphQL(
 		gql.NewExecutableSchema(gqlConfig),
