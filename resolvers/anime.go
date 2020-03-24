@@ -30,20 +30,3 @@ func (r *queryResolver) Anime(ctx context.Context, id *int) (*proto.Anime, error
 
 	return response.Anime, nil
 }
-
-func (r *animeResolver) Releases(ctx context.Context, parent *proto.Anime) ([]*proto.Release, error) {
-	conn, client, err := releaseServiceClient()
-	defer conn.Close()
-
-	if err != nil {
-		return nil, err
-	}
-
-	response, err := client.Releases(ctx, &proto.ReleasesRequest{Query: &proto.ReleaseQuery{AnimeId: parent.Id}})
-
-	if err != nil {
-		return nil, err
-	}
-
-	return response.Releases, nil
-}

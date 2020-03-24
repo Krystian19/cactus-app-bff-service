@@ -2,7 +2,7 @@ type Anime {
   id: Int!
   title: String!
 
-  Releases: [Release!]!
+  # Releases: [Release!]!
 }
 
 type Query {

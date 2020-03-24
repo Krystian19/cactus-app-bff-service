@@ -12,17 +12,6 @@ func InitGRPCConnection() (conn *grpc.ClientConn, err error) {
 	return grpc.Dial(os.Getenv("CACTUS_CORE_URL"), grpc.WithInsecure())
 }
 
-func languageServiceClient() (*grpc.ClientConn, proto.LanguageServiceClient, error) {
-	conn, err := InitGRPCConnection()
-
-	if err != nil {
-		conn.Close()
-		return nil, nil, err
-	}
-
-	return conn, proto.NewLanguageServiceClient(conn), nil
-}
-
 func animeServiceClient() (*grpc.ClientConn, proto.AnimeServiceClient, error) {
 	conn, err := InitGRPCConnection()
 
@@ -33,37 +22,3 @@ func animeServiceClient() (*grpc.ClientConn, proto.AnimeServiceClient, error) {
 
 	return conn, proto.NewAnimeServiceClient(conn), nil
 }
-
-func episodeServiceClient() (*grpc.ClientConn, proto.EpisodeServiceClient, error) {
-	conn, err := InitGRPCConnection()
-
-	if err != nil {
-		conn.Close()
-		return nil, nil, err
-	}
-
-	return conn, proto.NewEpisodeServiceClient(conn), nil
-}
-
-func genreServiceClient() (*grpc.ClientConn, proto.GenreServiceClient, error) {
-	conn, err := InitGRPCConnection()
-
-	if err != nil {
-		conn.Close()
-		return nil, nil, err
-	}
-
-	return conn, proto.NewGenreServiceClient(conn), nil
-}
-
-func releaseServiceClient() (*grpc.ClientConn, proto.ReleaseServiceClient, error) {
-	conn, err := InitGRPCConnection()
-
-	if err != nil {
-		conn.Close()
-		return nil, nil, err
-	}
-
-	return conn, proto.NewReleaseServiceClient(conn), nil
-}
-

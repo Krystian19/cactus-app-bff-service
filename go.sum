@@ -8,6 +8,17 @@ github.com/Krystian19/cactus-core v0.0.0-20200131004939-05e337e3e6f2 h1:EuPWaLqs
 github.com/Krystian19/cactus-core v0.0.0-20200131004939-05e337e3e6f2/go.mod h1:/VwcgoBLlx6RZa7wzcQJK6M0youuwdfv2wqDZP9qges=
 github.com/Krystian19/cactus-core v1.0.0 h1:KGBQ+YOfROFVEBBoCe5LY6Pa1O641EvKYBtUE3zkdNE=
 github.com/Krystian19/cactus-core v1.0.0/go.mod h1:/VwcgoBLlx6RZa7wzcQJK6M0youuwdfv2wqDZP9qges=
+github.com/Krystian19/cactus-core v1.0.1-0.20200324095512-f217cd65c620 h1:bblkKKRHnL7nUSI9Mzx2d5tQwDOotznY7572LV7DS+U=
+github.com/Krystian19/cactus-core v1.0.1-0.20200324095512-f217cd65c620/go.mod h1:hLrpcRC1wWSPEVhO1H3uOVXWWvtemePRLEldMr2qGZQ=
+github.com/Krystian19/cactus-core v1.0.1-0.20200324142923-47de086e0f58 h1:I2+i/feAJfDe/w+hNdD0nyQmbWMjWapPiWM6nKfbnto=
+github.com/Krystian19/cactus-core v1.0.1-0.20200324142923-47de086e0f58/go.mod h1:59WSWs68i8ibjPG689qcMjZUsNcehiQ+wR2WnzYnHLo=
+github.com/Krystian19/cactus-core v1.0.1-0.20200324143630-66b804552805 h1:YE5DoE/34yWLjEWgu2e2vm6winC90EHGgK3UXCMSxUk=
+github.com/Krystian19/cactus-core v1.0.1-0.20200324143630-66b804552805/go.mod h1:59WSWs68i8ibjPG689qcMjZUsNcehiQ+wR2WnzYnHLo=
+github.com/Krystian19/cactus-core v1.0.1-0.20200324144937-5de81728c8e8 h1:Ffk/k/XB/wj86Y1Cp4lEeUuDxrW6peETy1WxjnqIlsU=
+github.com/Krystian19/cactus-core v1.0.1-0.20200324144937-5de81728c8e8/go.mod h1:59WSWs68i8ibjPG689qcMjZUsNcehiQ+wR2WnzYnHLo=
+github.com/Krystian19/cactus-core v1.0.1-0.20200324145221-7104845fec6e h1:0ijoeE2YXu6bM//qI9gDXpt8cwfZPR57cBCco5d5o0w=
+github.com/Krystian19/cactus-core v1.0.1-0.20200324145221-7104845fec6e/go.mod h1:59WSWs68i8ibjPG689qcMjZUsNcehiQ+wR2WnzYnHLo=
+github.com/Krystian19/rust-grpc-server v0.0.0-20200324093722-037841a4898f/go.mod h1:TJS5DZobOVTBc72skIfcdszQFx/XEJ9o1tar4YiQ14A=
 github.com/Shopify/sarama v1.19.0/go.mod h1:FVkBWblsNy7DGZRfXLU0O9RCGt5g3g3yEuWXgklEdEo=
 github.com/Shopify/toxiproxy v2.1.4+incompatible/go.mod h1:OXgGpZ6Cli1/URJOF1DMxUHB2q5Ap20/P/eIdh4G0pI=
 github.com/agnivade/levenshtein v1.0.1 h1:3oJU7J3FGFmyhn8KHjmVaZCN5hxTr7GxgRue+sxIXdQ=
@@ -48,6 +59,8 @@ github.com/golang/protobuf v1.3.2 h1:6nsPYzhq5kReh6QImI3k5qWzO4PEbvbIW2cwSfR/6xs
 github.com/golang/protobuf v1.3.2/go.mod h1:6lQm79b+lXiMfvg/cZm0SGofjICqVBUtrP5yJMmIC1U=
 github.com/golang/protobuf v1.3.3 h1:gyjaxf+svBWX08ZjK86iN9geUJF0H6gp2IRKX6Nf6/I=
 github.com/golang/protobuf v1.3.3/go.mod h1:vzj43D7+SQXF/4pzW/hwtAqwc6iTitCiVSaWz5lYuqw=
+github.com/golang/protobuf v1.3.5 h1:F768QJ1E9tib+q5Sc8MkdJi1RxLTbRcTf8LJV56aRls=
+github.com/golang/protobuf v1.3.5/go.mod h1:6O5/vntMXwX2lRkT1hjjk0nAC1IDOTvTlVgjlRvqsdk=
 github.com/golang/snappy v0.0.0-20180518054509-2e65f85255db/go.mod h1:/XxbfmMg8lxefKM7IXC3fBNl/7bRcc72aCRzEWrmP2Q=
 github.com/google/btree v0.0.0-20180813153112-4030bb1f1f0c/go.mod h1:lNA+9X1NB3Zf8V7Ke586lFgjr2dZNuvo3lPJSGZ5JPQ=
 github.com/google/go-cmp v0.2.0/go.mod h1:oXzfMopK8JAjlY9xF4vHSVASa0yLyX7SntLO5aqRK0M=
@@ -192,6 +205,8 @@ google.golang.org/grpc v1.19.0/go.mod h1:mqu4LbDTu4XGKhr4mRzUsmM4RtVoemTSY81AxZi
 google.golang.org/grpc v1.23.0/go.mod h1:Y5yQAOtifL1yxbo5wqy6BxZv8vAUGQwXBOALyacEbxg=
 google.golang.org/grpc v1.27.0 h1:rRYRFMVgRv6E0D70Skyfsr28tDXIuuPZyWGMPdMcnXg=
 google.golang.org/grpc v1.27.0/go.mod h1:qbnxyOmOxrQa7FizSgH+ReBfzJrCY1pSN7KXBS8abTk=
+google.golang.org/grpc v1.27.1 h1:zvIju4sqAGvwKspUQOhwnpcqSbzi7/H6QomNNjTL4sk=
+google.golang.org/grpc v1.27.1/go.mod h1:qbnxyOmOxrQa7FizSgH+ReBfzJrCY1pSN7KXBS8abTk=
 gopkg.in/alecthomas/kingpin.v2 v2.2.6/go.mod h1:FMv+mEhP44yOT+4EoQTLFTRgOQ1FBLkstjWtayDeSgw=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=

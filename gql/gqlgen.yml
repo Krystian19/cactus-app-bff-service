@@ -10,19 +10,19 @@ model:
 autobind: []
 
 models:
-  Language:
-    model: github.com/Krystian19/cactus-core/proto.Language
-  Genre:
-    model: github.com/Krystian19/cactus-core/proto.Genre
   Anime:
     model: github.com/Krystian19/cactus-core/proto.Anime
-  Release:
-    model: github.com/Krystian19/cactus-core/proto.Release
-  ReleaseDescription:
-    model: github.com/Krystian19/cactus-core/proto.ReleaseDescription
-  ReleaseType:
-    model: github.com/Krystian19/cactus-core/proto.ReleaseType
-  Episode:
-    model: github.com/Krystian19/cactus-core/proto.Episode
-  EpisodeSubtitle:
-    model: github.com/Krystian19/cactus-core/proto.EpisodeSubtitle
+  # Language:
+  #   model: github.com/Krystian19/cactus-core/proto.Language
+  # Genre:
+  #   model: github.com/Krystian19/cactus-core/proto.Genre
+  # Release:
+  #   model: github.com/Krystian19/cactus-core/proto.Release
+  # ReleaseDescription:
+  #   model: github.com/Krystian19/cactus-core/proto.ReleaseDescription
+  # ReleaseType:
+  #   model: github.com/Krystian19/cactus-core/proto.ReleaseType
+  # Episode:
+  #   model: github.com/Krystian19/cactus-core/proto.Episode
+  # EpisodeSubtitle:
+  #   model: github.com/Krystian19/cactus-core/proto.EpisodeSubtitle
