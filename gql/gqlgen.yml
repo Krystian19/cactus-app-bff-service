@@ -10,12 +10,12 @@ model:
 autobind: []
 
 models:
-  Anime:
-    model: github.com/Krystian19/cactus-core/proto.Anime
   # Language:
   #   model: github.com/Krystian19/cactus-core/proto.Language
   # Genre:
   #   model: github.com/Krystian19/cactus-core/proto.Genre
+  Anime:
+    model: github.com/Krystian19/cactus-core/proto.Anime
   # Release:
   #   model: github.com/Krystian19/cactus-core/proto.Release
   # ReleaseDescription:
