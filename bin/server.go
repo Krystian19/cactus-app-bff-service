@@ -32,7 +32,7 @@ func Server(port string) error {
 		// handler.ComplexityLimit(5), // GQL query complexity limit
 	))
 
-	return http.ListenAndServe(":"+PORT, nil)
+	return http.ListenAndServe(":"+port, nil)
 }
 
 // EnvVarsCheck : Checks that important ENV vars are set
