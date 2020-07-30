@@ -6,6 +6,8 @@ github.com/99designs/gqlgen v0.11.3/go.mod h1:RgX5GRRdDWNkh4pBrdzNpNPFVsdoUFY2+a
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/Krystian19/cactus-core v0.0.0-20200421141236-a040779ebb3d h1:pnQymdqUcW/XeEyscaawcy/siT50k+zew2Cmpc+yPDM=
 github.com/Krystian19/cactus-core v0.0.0-20200421141236-a040779ebb3d/go.mod h1:/VwcgoBLlx6RZa7wzcQJK6M0youuwdfv2wqDZP9qges=
+github.com/Krystian19/cactus-core v0.0.0-20200730140639-dc67d28b6928 h1:vZePcKBS8YUtFe9dtnnVAm4ywA/gpY4HeNYqYGPq/2M=
+github.com/Krystian19/cactus-core v0.0.0-20200730140639-dc67d28b6928/go.mod h1:/VwcgoBLlx6RZa7wzcQJK6M0youuwdfv2wqDZP9qges=
 github.com/Shopify/sarama v1.19.0/go.mod h1:FVkBWblsNy7DGZRfXLU0O9RCGt5g3g3yEuWXgklEdEo=
 github.com/Shopify/toxiproxy v2.1.4+incompatible/go.mod h1:OXgGpZ6Cli1/URJOF1DMxUHB2q5Ap20/P/eIdh4G0pI=
 github.com/agnivade/levenshtein v1.0.1 h1:3oJU7J3FGFmyhn8KHjmVaZCN5hxTr7GxgRue+sxIXdQ=

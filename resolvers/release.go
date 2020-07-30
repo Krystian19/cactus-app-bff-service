@@ -5,6 +5,7 @@ import (
 
 	"github.com/Krystian19/cactus-bff/gql"
 	"github.com/Krystian19/cactus-core/proto"
+	"github.com/golang/protobuf/ptypes/empty"
 )
 
 type releaseResolver struct{ *Resolver }
@@ -87,7 +88,7 @@ func (r *queryResolver) RandomRelease(ctx context.Context) (*proto.Release, erro
 		return nil, err
 	}
 
-	response, err := client.RandomRelease(ctx, &proto.Empty{})
+	response, err := client.RandomRelease(ctx, &empty.Empty{})
 
 	if err != nil {
 		return nil, err
@@ -104,7 +105,7 @@ func (r *queryResolver) AiringReleases(ctx context.Context) ([]*proto.Release, e
 		return nil, err
 	}
 
-	response, err := client.AiringReleases(ctx, &proto.Empty{})
+	response, err := client.AiringReleases(ctx, &empty.Empty{})
 
 	if err != nil {
 		return nil, err
