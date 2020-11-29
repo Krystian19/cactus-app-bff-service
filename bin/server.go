@@ -2,42 +2,57 @@ package main
 
 import (
 	"net/http"
-	"os"
+	"time"
 
-	"github.com/99designs/gqlgen/handler"
+	"github.com/99designs/gqlgen/graphql/handler"
+	"github.com/99designs/gqlgen/graphql/handler/apollotracing"
+	"github.com/99designs/gqlgen/graphql/handler/extension"
+	"github.com/99designs/gqlgen/graphql/handler/lru"
+	"github.com/99designs/gqlgen/graphql/handler/transport"
+	"github.com/99designs/gqlgen/graphql/playground"
 	"github.com/Krystian19/cactus-bff/gql"
 	"github.com/Krystian19/cactus-bff/resolvers"
 )
 
 const (
-	gqlPlaygroundURL = "/playground_graphql"
+	gqlPlaygroundURL = "/play_graphql"
+	gqlEndPoint      = "/q"
 )
+
+func newDefaultServer() *handler.Server {
+	hldr := handler.New(gql.NewExecutableSchema(gql.Config{Resolvers: &resolvers.Resolver{}}))
+
+	hldr.AddTransport(transport.Websocket{
+		KeepAlivePingInterval: 10 * time.Second,
+	})
+
+	hldr.AddTransport(transport.Options{})
+	hldr.AddTransport(transport.GET{})
+	hldr.AddTransport(transport.POST{})
+	hldr.AddTransport(transport.MultipartForm{})
+
+	hldr.SetQueryCache(lru.New(1000))
+
+	hldr.Use(extension.AutomaticPersistedQuery{
+		Cache: lru.New(100),
+	})
+
+	return hldr
+}
 
 // Server : Runs a new GraphQL server
 func Server(port string) error {
-	// Check for important env vars
-	EnvVarsCheck()
+	// Graphql endpoint for internal use
+	playSrv := newDefaultServer()
+	playSrv.Use(apollotracing.Tracer{})
+	playSrv.Use(extension.Introspection{})
 
-	gqlConfig := gql.Config{Resolvers: &resolvers.Resolver{}}
+	http.Handle("/", playground.Handler("Playground", gqlPlaygroundURL))
+	http.Handle(gqlPlaygroundURL, playSrv)
 
-	http.Handle("/", handler.Playground("GraphQL playground", gqlPlaygroundURL))
-	http.Handle(gqlPlaygroundURL, handler.GraphQL(gql.NewExecutableSchema(gqlConfig)))
-	http.Handle("/graphql", handler.GraphQL(
-		gql.NewExecutableSchema(gqlConfig),
-
-		// Disable introspection for the endpoint exposed to the outside
-		handler.IntrospectionEnabled(false),
-
-		// Limit the query complexity of the endpoint exposed to the outside
-		// handler.ComplexityLimit(5), // GQL query complexity limit
-	))
+	// Graphql endpoint exposed to the outside world
+	outsideSrv := newDefaultServer()
+	http.Handle(gqlEndPoint, outsideSrv)
 
 	return http.ListenAndServe(":"+port, nil)
-}
-
-// EnvVarsCheck : Checks that important ENV vars are set
-func EnvVarsCheck() {
-	if os.Getenv("CACTUS_CORE_URL") == "" {
-		panic("CACTUS_CORE_URL env var is not set")
-	}
 }
