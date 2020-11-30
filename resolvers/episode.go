@@ -9,6 +9,11 @@ import (
 
 type episodeResolver struct{ *Resolver }
 
+// Episode : returns a EpisodeResolver struct which implements the gql.EpisodeResolver interface.
+func (r *Resolver) Episode() gql.EpisodeResolver {
+	return &episodeResolver{r}
+}
+
 func (r *queryResolver) Episode(ctx context.Context, id *int) (*proto.Episode, error) {
 	conn, client, err := episodeServiceClient()
 	defer conn.Close()

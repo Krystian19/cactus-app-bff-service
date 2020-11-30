@@ -10,6 +10,11 @@ import (
 
 type releaseResolver struct{ *Resolver }
 
+// Release : returns a ReleaseResolver struct which implements the gql.ReleaseResolver interface.
+func (r *Resolver) Release() gql.ReleaseResolver {
+	return &releaseResolver{r}
+}
+
 func (r *queryResolver) Release(ctx context.Context, id *int) (*proto.Release, error) {
 	conn, client, err := releaseServiceClient()
 	defer conn.Close()

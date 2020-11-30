@@ -3,10 +3,16 @@ package resolvers
 import (
 	"context"
 
+	"github.com/Krystian19/cactus-bff/gql"
 	"github.com/Krystian19/cactus-core/proto"
 )
 
 type animeResolver struct{ *Resolver }
+
+// Anime : returns a AnimeResolver struct which implements the gql.AnimeResolver interface.
+func (r *Resolver) Anime() gql.AnimeResolver {
+	return &animeResolver{r}
+}
 
 func (r *queryResolver) Anime(ctx context.Context, id *int) (*proto.Anime, error) {
 	conn, client, err := animeServiceClient()
